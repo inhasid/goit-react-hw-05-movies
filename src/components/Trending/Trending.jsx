@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import { getTrending } from '../../api/trending';
 import Loader from '../Loader/Loader';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 import styles from './trending.module.css';
 
@@ -28,19 +28,11 @@ const Trending = () => {
     fetchTrending();
   }, []);
 
-  const elements = trending.map(({ id, title }) => (
-    <li key={id} className={styles.item}>
-      <Link className={styles.link} to={`/movies/${id}`}>
-        {title}
-      </Link>
-    </li>
-  ));
-
   return (
     <>
       {error && <p className={styles.error}>{error}</p>}
       {loading && <Loader />}
-      {Boolean(elements.length) && <ul className={styles.list}>{elements}</ul>}
+      {Boolean(trending.length) && <MoviesList items={trending} />}
     </>
   );
 };
