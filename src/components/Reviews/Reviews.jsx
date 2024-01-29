@@ -38,7 +38,9 @@ const Reviews = () => {
     <>
       {loading && <p>...Loading</p>}
       {error && <p>{error}</p>}
-      {isReview && <ul className={styles.list}>{elements}</ul>}
+      {(isReview && <ul className={styles.list}>{elements}</ul>) || (
+        <p className={styles.info}>There are no reviews.</p>
+      )}
     </>
   );
 };

@@ -49,7 +49,9 @@ const Cast = () => {
     <>
       {loading && <Loader />}
       {error && <p>{error}</p>}
-      {isCast && <ul className={styles.list}>{elements}</ul>}
+      {(isCast && <ul className={styles.list}>{elements}</ul>) || (
+        <p className={styles.info}>The cast is absent.</p>
+      )}
     </>
   );
 };
