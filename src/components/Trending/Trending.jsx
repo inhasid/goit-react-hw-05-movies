@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { getTrending } from '../../api/trending';
+import Loader from '../Loader/Loader';
 
 import styles from './trending.module.css';
 
@@ -38,7 +39,7 @@ const Trending = () => {
   return (
     <>
       {error && <p className={styles.error}>{error}</p>}
-      {loading && <p>...Loading</p>}
+      {loading && <Loader />}
       {Boolean(elements.length) && <ul className={styles.list}>{elements}</ul>}
     </>
   );

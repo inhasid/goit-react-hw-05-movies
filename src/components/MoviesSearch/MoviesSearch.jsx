@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import Button from '../Button/Button';
+import Loader from '../Loader/Loader';
 
 import MoviesSearchForm from 'components/MoviesSearchForm/MoviesSearchForm';
 import MoviesSearchList from 'components/MoviesSearchList/MoviesSearchList';
@@ -56,7 +57,7 @@ const MoviesSearch = () => {
     <>
       <MoviesSearchForm onSubmit={handleSearch} />
       {error && <p className={styles.error}>{error}</p>}
-      {loading && <p>...Loading</p>}
+      {loading && <Loader />}
       {isMovies && <MoviesSearchList items={movies} />}
       {isMovies && isMoreMovies && (
         <div className={styles.loadMoreWrapper}>

@@ -1,12 +1,16 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 
 import MainMenu from '../MainMenu/MainMenu';
+import Loader from '../Loader/Loader';
 
 const SharedLayout = () => {
   return (
     <>
       <MainMenu />
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

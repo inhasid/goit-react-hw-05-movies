@@ -7,6 +7,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { getMoviesDetails } from '../../api/movie';
+import Loader from '../Loader/Loader';
 
 import styles from './movie-details.module.css';
 
@@ -46,7 +47,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      {loading && <p>...Loading</p>}
+      {loading && <Loader />}
       {error && <p>Error: {error}</p>}
       <button className={styles.btn} onClick={goBack} type="button">
         Go back
@@ -85,7 +86,7 @@ const MovieDetails = () => {
                 </Link>
               </li>
             </ul>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
           </div>

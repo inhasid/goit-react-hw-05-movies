@@ -1,6 +1,7 @@
 import { getMoviesCredits } from '../../api/movie';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Loader from '../Loader/Loader';
 import styles from './cast.module.css';
 import img from 'img/person.jpg';
 
@@ -46,7 +47,7 @@ const Cast = () => {
 
   return (
     <>
-      {loading && <p>...Loading</p>}
+      {loading && <Loader />}
       {error && <p>{error}</p>}
       {isCast && <ul className={styles.list}>{elements}</ul>}
     </>
