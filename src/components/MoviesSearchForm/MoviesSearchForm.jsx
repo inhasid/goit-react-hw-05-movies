@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, Component } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { nanoid } from 'nanoid';
 
 import styles from './movies-search-form.module.css';

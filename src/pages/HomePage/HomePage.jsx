@@ -4,8 +4,8 @@ import styles from './home-page.module.css';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Trending today</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Trending today</h1>
       <Trending />
     </div>
   );
